@@ -49,7 +49,6 @@ void animate(Clock clock, IntRect* rectSourceSprite, Sprite* sprite, int size, i
 
 }
 
-
 void write(int n, RenderWindow* window,float size, Color c,float x, float y) {
 	Font font;
 	if (!font.loadFromFile("fonts/pc98.ttf")) {
@@ -75,7 +74,6 @@ void write(int n, RenderWindow* window,float size, Color c,float x, float y) {
 
 	(*window).draw(texto);
 }
-
 
 void draw_menu(int* current_scr, RenderWindow *window) {
 	// Create text
@@ -129,32 +127,36 @@ void draw_menu(int* current_scr, RenderWindow *window) {
 	(*window).draw(opt3);
 }
 
-void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow* main, int* room, int* current_scr, RenderWindow* window, Event& event) {
+void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow* main, int* room, int* current_scr, RenderWindow* window, Event& event, int *cursorLine) {
 	int h;
 	
 	IntRect rectMc(0, 0, 160, 160),rectArm(0,0,160,160), rectl(0, 0, 480, 160);
 	Sprite mc(textures[0], rectMc),arm(textures[1], rectArm), l(textures[2], rectl);
-	sf::Texture rooml;
+	Texture rooml;
 	Sprite rom;
 	arm.setOrigin(18 * 5, 14 * 5);
 	l.setOrigin(12*5, 12 * 5);
+	cout << main->x << endl;
 	switch (*room) 
 	{
 	case 0:
-		
 		main->tx = 800;
-		if (Keyboard::isKeyPressed(Keyboard::Return) && main->x > 700) {
-			main->x = 42 * 5;
+		if (main->x > 700) {
+			main->x = 23 * 5;
 			*room = 1;
 		}
+		//
 		break;
-	case 1:
-		
+	case 1:	
 
-		if (Keyboard::isKeyPressed(Keyboard::Return) && main->x < 40*5) {
+		if (main->x < 20*5) {
 			main->x = 650;
 			*room = 0;
 		}
+
+		if(main->x > 1335 && main->x < 1565)
+			* cursorLine = 7;
+
 		//doors
 		if (main->door[4])
 			main->tx = 1080 * 5;
@@ -317,10 +319,11 @@ void draw_credits(int* current_scr, RenderWindow *window) {
 	(*window).draw(credits);
 }
 
-void draw_scr(Texture* textures,double delta,Clock clock,shadow* main,int* room,int* current_scr, RenderWindow *window, Event &event,Sound *sound) {
+void draw_scr(Texture* textures,double delta,Clock clock,shadow* main,int* room,int* current_scr, RenderWindow *window, Event &event,Sound *sound, int *cursorLine) {
 	/*
 	 *  0 - Menu
 	 *  1 - Game
+	 *  2 - Credits
 	 */
 
 	switch (*current_scr) {
@@ -329,7 +332,7 @@ void draw_scr(Texture* textures,double delta,Clock clock,shadow* main,int* room,
 		init_main(main);
 		break;
 	case 1:
-		draw_game(sound,textures,delta, clock,main,room,current_scr, window, event);
+		draw_game(sound,textures,delta, clock,main,room,current_scr, window, event, cursorLine);
 		break;
 	case 2:
 		draw_credits(current_scr, window);
@@ -341,41 +344,49 @@ void draw_scr(Texture* textures,double delta,Clock clock,shadow* main,int* room,
 
 Texture* load_textures() {
 	Texture *textures;
-	textures=(Texture*)malloc(sizeof(Texture) * 5);
+	textures=(Texture*)malloc(sizeof(Texture) * 6);
+
 	Texture shadowsheet;
 	if (!shadowsheet.loadFromFile("img/shadowsheet.png", IntRect(0, 0, 800, 480))) {
 		perror("failed to load shadowsheet image");
-		system("pause");
+		exit(1);
 
 	}
 	Texture armt;
 	if (!armt.loadFromFile("img/arm.png", IntRect(0, 0, 32 * 5, 32 * 5))) {
 		perror("failed to load arm image");
-		system("pause");
+		exit(1);
 
 	}
 	Texture ltr;
 	if (!ltr.loadFromFile("img/lantern.png", IntRect(0, 0, 480, 160))) {
 		perror("failed to load lantern image");
-		system("pause");
+		exit(1);
 
 	}
 	Texture rooml;
 	if (!rooml.loadFromFile("img/rooms.png", sf::IntRect(0, 0, 800, 600))) {
 		perror("failed to load room image");
-		system("pause");
+		exit(1);
 
 	}
 	Texture room;
 	if (!room.loadFromFile("img/hall.png", sf::IntRect(0, 0, 5400, 600))) {
 		perror("failed to load room image");
-		system("pause");
+		exit(1);
+	}
+	Texture hidden;
+	if (!hidden.loadFromFile("img/hiddensheet.png", sf::IntRect(0, 0, 150, 600))) {
+		perror("failed to load objects image");
+		exit(1);
 	}
 	textures[0] = shadowsheet;
 	textures[1] = armt;
 	textures[2] = ltr;
 	textures[3] = rooml;
 	textures[4] = room;
+	textures[5] = hidden;
+
 	return textures;
 
 }
@@ -387,10 +398,13 @@ int main(void) {
 	// Initialize window
 	RenderWindow window(VideoMode::getDesktopMode(), "Afraid Of The Shadows", Style::Fullscreen);
 	window.setFramerateLimit(60);
+	window.setMouseCursorVisible(false);
 	shadow main;
 	init_main(&main);
 	Texture* textures;
 	textures = load_textures();
+	Sprite cursor(textures[5]);
+	IntRect cursorRect(0,50,50,50);
 	SoundBuffer walk;
 	if (!walk.loadFromFile("sound/walk.wav")) {
 		cout << "Error loading sound" << endl;
@@ -414,10 +428,15 @@ int main(void) {
 
 
 		window.clear();
-		if (time.asSeconds() <= 10)
+		int cursorLine = 1;
+		if (time.asSeconds() <= 5)
 			draw_credits_gamso(&window);
 		else
-			draw_scr(textures,delta,clock,&main,&room,current_scr, &window, event,&sound);
+			draw_scr(textures,delta,clock,&main,&room,current_scr, &window, event, &sound, &cursorLine);
+		cursorRect.top = 50 * cursorLine;
+		cursor.setTextureRect(cursorRect);
+		cursor.setPosition(static_cast<Vector2f>(Mouse::getPosition(window)));
+		window.draw(cursor);
 		window.display();
 		ot = nt;
 	}

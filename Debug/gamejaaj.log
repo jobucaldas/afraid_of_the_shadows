@@ -1,111 +1,111 @@
 ﻿  main.cpp
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(63,47): warning C4244:  'argumento': conversão de 'float' para 'unsigned int', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(99,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(100,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(101,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(102,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(103,122): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(103,45): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(104,77): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(104,41): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(105,77): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(105,41): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(106,77): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(106,41): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,96): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,96): warning C4244:         with
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,96): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,96): warning C4244:             T=int
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,96): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,96): warning C4244:         and
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,96): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,96): warning C4244:             T=float
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,96): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,65): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,65): warning C4244:         with
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,65): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,65): warning C4244:             T=int
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,65): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,65): warning C4244:         and
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,65): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,65): warning C4244:             T=float
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(109,65): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,101): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,101): warning C4244:         with
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,101): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,101): warning C4244:             T=int
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,101): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,101): warning C4244:         and
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,101): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,101): warning C4244:             T=float
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,101): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,70): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,70): warning C4244:         with
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,70): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,70): warning C4244:             T=int
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,70): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,70): warning C4244:         and
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,70): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,70): warning C4244:             T=float
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(114,70): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,101): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,101): warning C4244:         with
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,101): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,101): warning C4244:             T=int
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,101): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,101): warning C4244:         and
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,101): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,101): warning C4244:             T=float
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,101): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,70): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,70): warning C4244:         with
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,70): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,70): warning C4244:             T=int
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,70): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,70): warning C4244:         and
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,70): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,70): warning C4244:             T=float
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(119,70): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(175,68): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(175,37): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(186,21): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(192,21): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(207,199): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(213,198): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(242,157): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(242,103): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(243,151): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(243,101): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(244,141): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(244,98): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(245,64): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(245,33): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(246,65): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(246,34): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(133,6): warning C4101:  'h': variável local não referenciada
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(272,48): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(273,102): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(300,48): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(301,75): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(301,42): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(305,49): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,98): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,98): warning C4244:         with
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,98): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,98): warning C4244:             T=int
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,98): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,98): warning C4244:         and
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,98): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,98): warning C4244:             T=float
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,98): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,67): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,67): warning C4244:         with
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,67): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,67): warning C4244:             T=int
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,67): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,67): warning C4244:         and
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,67): warning C4244:         [
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,67): warning C4244:             T=float
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(309,67): warning C4244:         ]
-C:\Users\marc\Desktop\git\afraid_of_the_shadows\main.cpp(407,27): warning C4244:  '=': conversão de 'sf::Int64' para 'double', possível perda de dados
-  gamejaaj.vcxproj -> C:\Users\marc\Desktop\git\afraid_of_the_shadows\Debug\gamejaaj.exe
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(62,47): warning C4244:  'argumento': conversão de 'float' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(97,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(98,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(99,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(100,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(101,122): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(101,45): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(102,77): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(102,41): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(103,77): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(103,41): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(104,77): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(104,41): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(177,68): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(177,37): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(188,21): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(194,21): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(209,199): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(215,198): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(244,157): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(244,103): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(245,151): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(245,101): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(246,141): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(246,98): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(247,64): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(247,33): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(248,65): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(248,34): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(131,6): warning C4101:  'h': variável local não referenciada
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(274,48): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(275,102): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(302,48): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(303,75): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(303,42): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(307,49): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(421,27): warning C4244:  '=': conversão de 'sf::Int64' para 'double', possível perda de dados
+  gamejaaj.vcxproj -> C:\Users\PICHAU\source\repos\gamejaaj\Debug\gamejaaj.exe
