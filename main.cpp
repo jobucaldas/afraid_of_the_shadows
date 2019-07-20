@@ -7,12 +7,13 @@ using namespace std;
 using namespace sf;
 typedef struct {
 	float x, y, ang,wx,tx, battery,san;
-	int frames, line, dir, jump,ltrn, door[6],a[1], cs,chat;
+	int frames, line, dir, jump,ltrn, door[6],a[1], cs,chat,ignore;
 	IntRect rectA;
-	Clock cut;
+	Clock cut,ch;
 }shadow;
 
 void init_main(shadow* main) {
+	main->ignore=0;
 	main->chat = 0;
 	main->battery = 100;
 	main->san = 100;
@@ -89,18 +90,18 @@ void chat(int n, RenderWindow* window) {
 		write(1, window, 0.03, Color::White, 350, 650, 10, "Está muito escuro aqui...\n");
 		write(1, window, 0.02, Color::White, 350, 650, 10, "\n \n ainda bem que há uma lanterna");
 		break;
-	case 1:
-		write(1, window, 0.03, Color::White, 50, 650, 10, "");
-		break;
 	case 2:
+
+		write(1, window, 0.03, Color::White, 50, 650, 10, "algo ainda me deixa desconfortavel aqui...");
+		break;
+
+	case 4:
 		write(1, window, 0.03, Color::White, 50, 650, 10, "FUJA!	FUJA!  FUJA RAPIDAMENTE! ,\n ELE NÃO ESTÁ TÃO LONGE...");
 		break;
-	case 3:
-		write(1, window, 0.03, Color::White, 50, 650, 10, "");
-		break;
-	case 4:
+	case 6:
 		write(1, window, 0.03, Color::White, 50, 650, 10, "SAIA DO MEU QUARTO,\n crianças não deveriam estar aqui...");
 		break;
+
 	default:
 		write(1, window, 0.03, Color::White, 50, 650, 10, "");
 		break;
@@ -181,7 +182,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 	Sprite mc(textures[0], rectMc),arm(textures[1], rectArm), l(textures[2], rectl),animation(textures[6],main->rectA),battery(textures[5],rectB);
 	Texture rooml,green;
 	Sprite  energy(green,rectE);
-	Sprite prop[4];
+	Sprite prop[6];
 	energy.setColor(Color::Green);
 	energy.setOrigin(-10, 0);
 	energy.setScale((*window).getSize().x / 800.0/2, (*window).getSize().y / 600.0*-1*(main->battery/100));
@@ -218,10 +219,12 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 
 		main->dir = 1;
 		main->line = 0;
+		main->chat = 0;
 	}
-	else if (main->chat % 2==0) {
+	else if (main->chat % 2==0 && main->ignore==0) {
 		main->dir = 1;
 		main->line = 0;
+		main->san = main->san + 0.05 / delta;
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::A) && main->wx>8*5 ) {
 
@@ -308,15 +311,27 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 	mc.scale((*window).getSize().x / 800.0, (*window).getSize().y / 600.0);
 	arm.scale((*window).getSize().x / 800.0, (*window).getSize().y / 600.0);
 	// Draw
-
 	switch (*room)
 	{
 	case 0:
 		main->tx = 800;
-		if (main->x > 700) {
+		if (main->x > 700 && propLine[0]!=0) {
 			main->x = 23 * 5;
 			*room = 1;
 			main->door[0] = 1;
+		}
+		else if (main->x > 700) {
+			main->chat = 2;
+			main->ignore = 1;
+			main->ch.restart();
+		}
+		else if (main->ch.getElapsedTime().asSeconds() < 4) {
+			main->chat = 2;
+			main->ignore = 1;
+		}
+		else if(main->chat % 2 == 1){
+			main->chat = 1;
+			main->ignore = 0;
 		}
 		if (main->a[0] == 0) {
 			if (main->cs == 0) {
@@ -335,22 +350,42 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		if (prop[0].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
 			propLine[0] = 2;
 		}
-		else
-			propLine[0] = 0;
+		if (propLine[0] == 0) {
+			main->san = main->san - 0.05 / delta;
+		}
+		
 
 		//
 		break;
 	case 1:
-
+		prop[1] = get_prop(clock, textures, propLine[1], (main->wx - main->x+700) * (*window).getSize().x / 800.0, window->getSize().y * 0.75);
+		if (prop[1].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
+			propLine[1] = 5;
+		}
+		if (propLine[1] == 0) {
+			main->san = main->san - 0.05 / delta;
+		}
+		
 		if (main->x < 20 * 5) {
 			main->x = 650;
 			*room = 0;
 		}
+		
 		else if (main->x > 200 * 5 && main->x < 228 * 5) {
 			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)&& propLine[1]!=0) {
 				main->x = 1400;
 				*room = 2;
+			}
+			else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->chat = 2;
+				main->ch.restart();
+			}
+			else if (main->ch.getElapsedTime().asSeconds() < 4) {
+				main->chat = 2;
+			}
+			else {
+				main->chat = 1;
 			}
 		}
 		else if (main->x > 400 * 5 && main->x < 428 * 5) {
@@ -396,13 +431,48 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		break;
 
 	case 2:
+		prop[2] = get_prop(clock, textures, propLine[2], (main->wx - main->x + 900) * (*window).getSize().x / 800.0, window->getSize().y * 0.75);
+		if (prop[2].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
+			propLine[2] = 8;
+		}
+		prop[3] = get_prop(clock, textures, propLine[3], (main->wx - main->x + 400) * (*window).getSize().x / 800.0, window->getSize().y * 0.75);
+		if (prop[3].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
+			propLine[3] = 5;
+		}
+		if (propLine[2] == 0|| propLine[3] == 0) {
+			main->san = main->san - 0.05 / delta;
+		}
 		main->tx = 1600;
 		if (main->wx > 700) {
 			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)&& propLine[2] != 0 && propLine[3] != 0) {
 				main->x = 230 * 5;
 				*room = 1;
 				main->door[1] = 1;
+			}
+			else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->chat = 2;
+				main->ch.restart();
+			}
+			else if(main->ch.getElapsedTime().asSeconds()<4) {
+				main->chat = 2;
+			}
+			else {
+				main->chat=1;
+			}
+		}
+		else if (main->x < 500) {
+			if (main->ignore==0) {
+				main->ignore = 1;
+				main->chat = 4;
+				main->ch.restart();
+			}
+			else if (main->ch.getElapsedTime().asSeconds() < 4) {
+				main->chat = 4;
+			}
+			else {
+				main->chat = 1;
+				main->ignore = 0;
 			}
 		}
 
@@ -412,13 +482,43 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		main->tx = 1600;
 		if (main->wx > 700) {
 			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)&&propLine[4]!=0) {
 				main->x = 430 * 5;
 				*room = 1;
 				main->door[2] = 1;
 			}
+			else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->chat = 2;
+				main->ch.restart();
+			}
+			else if (main->ch.getElapsedTime().asSeconds() < 4) {
+				main->chat = 2;
+			}
+			else {
+				main->chat = 1;
+			}
 		}
-
+		else if (main->x < 500) {
+			if (main->ignore == 0) {
+				main->ignore = 1;
+				main->chat = 6;
+				main->ch.restart();
+			}
+			else if (main->ch.getElapsedTime().asSeconds() < 4) {
+				main->chat = 6;
+			}
+			else {
+				main->chat = 1;
+				main->ignore = 0;
+			}
+		}
+		prop[4] = get_prop(clock, textures, propLine[4], (main->wx - main->x + 400) * (*window).getSize().x / 800.0, window->getSize().y * 0.75);
+		if (prop[4].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
+			propLine[4] = 4;
+		}
+		if (propLine[4] == 0 ) {
+			main->san = main->san - 0.05 / delta;
+		}
 		//
 		break;
 	case 4:
@@ -466,12 +566,20 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		if (sound->getStatus() != sound->Playing)
 			sound->play();
 	}
+	prop[0].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
+	prop[1].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
+	prop[2].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
+	prop[3].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
+	prop[4].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
+	prop[5].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
 	(*window).draw(rom);
 	(*window).draw(arm);
 	(*window).draw(prop[0]);
 	(*window).draw(prop[1]);
 	(*window).draw(prop[2]);
 	(*window).draw(prop[3]);
+	(*window).draw(prop[4]);
+	(*window).draw(prop[5]);
 	if(main->ltrn && main->battery>0)
 		(*window).draw(l);
 	(*window).draw(mc);
@@ -486,6 +594,8 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		(*window).draw(prop[1]);
 		(*window).draw(prop[2]);
 		(*window).draw(prop[3]);
+		(*window).draw(prop[4]);
+		(*window).draw(prop[5]);
 	}
 	chat(main->chat, window);
 
