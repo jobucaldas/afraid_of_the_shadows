@@ -7,7 +7,7 @@ using namespace std;
 using namespace sf;
 typedef struct {
 	float x, y, ang,wx,tx, battery,san;
-	int frames, line, dir, jump,ltrn, door[5],a[1], cs,chat;
+	int frames, line, dir, jump,ltrn, door[6],a[1], cs,chat;
 	IntRect rectA;
 	Clock cut;
 }shadow;
@@ -32,6 +32,7 @@ void init_main(shadow* main) {
 	main->door[2] = 0;
 	main->door[3] = 0;
 	main->door[4] = 0;
+	main->door[5] = 0;
 	main->a[0] = 0;
 
 }
@@ -49,10 +50,10 @@ int cutscene(Clock clock,IntRect* rectSourceSprite, Sprite* sprite, int sizex, i
 
 }
 
-void animate(Clock clock, IntRect* rectSourceSprite, Sprite* sprite, int size, int frames, int line, int fps) {
+void animate(Clock clock, IntRect* rectSourceSprite, Sprite* sprite, int sizex,int sizey, int frames, int line, int fps) {
 
-	(*rectSourceSprite).left = ((int)(clock.getElapsedTime().asMilliseconds() / (1000.0 / fps))) % (int)frames * size ;
-	(*rectSourceSprite).top = line * size;
+	(*rectSourceSprite).left = ((int)(clock.getElapsedTime().asMilliseconds() / (1000.0 / fps))) % (int)frames * sizex ;
+	(*rectSourceSprite).top = line * sizey;
 	(*sprite).setTextureRect(*rectSourceSprite);
 
 }
@@ -169,17 +170,20 @@ void draw_menu(int* current_scr,Texture * textures ,RenderWindow *window) {
 
 void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow* main, int* room, int* current_scr, RenderWindow* window, Event& event, int *cursorLine) {
 	int h;
-	
+
 	IntRect rectMc(0, 0, 160, 160), rectArm(0, 0, 160, 160), rectl(0, 0, 480, 160) ,rectB(0,500,50,50), rectE(0, 0, 30, 30);
 	Sprite mc(textures[0], rectMc),arm(textures[1], rectArm), l(textures[2], rectl),animation(textures[6],main->rectA),battery(textures[5],rectB);
 	Texture rooml,green;
-	Sprite rom, energy(green,rectE);
+	Sprite  energy(green,rectE);
 	energy.setColor(Color::Green);
 	energy.setOrigin(-10, 0);
 	energy.setScale((*window).getSize().x / 800.0/2, (*window).getSize().y / 600.0*-1*(main->battery/100));
 	energy.setPosition((*window).getSize().x / 800.0 * 100, (*window).getSize().y / 600.0 * (145));
 	arm.setOrigin(18 * 5, 14 * 5);
 	l.setOrigin(12*5, 12 * 5);
+	mc.setScale(1, 1);
+	arm.setScale(1, 1);
+	l.setScale(1, 1);
 	switch (*room) 
 	{
 	case 0:
@@ -196,7 +200,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 			main->cs = 1;
 			
 		}
-		if (!(main->cut.getElapsedTime().asSeconds() < 3 && main->door[0]==0) ){
+		if (!(main->cut.getElapsedTime().asSeconds() < 10 && main->door[0]==0 && !Keyboard::isKeyPressed(Keyboard::D) ) ){
 			main->chat = 1;
 
 		}
@@ -208,31 +212,132 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 			main->x = 650;
 			*room = 0;
 		}
-
-		if(main->x > 1335 && main->x < 1565)
-			* cursorLine = 7;
-
+		else if (main->x > 200*5 && main->x < 228*5) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 1400;
+				*room = 2;
+			}
+		}
+		else if (main->x > 400*5 && main->x < 428*5) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 1400;
+				*room = 3;
+			}
+		}
+		else if (main->x > 600 * 5 && main->x < 628 * 5) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 1400;
+				*room = 4;
+			}
+		}
+		else if (main->x > 800 * 5 && main->x < 828 * 5) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 1400;
+				*room = 5;
+			}
+		}
+		else if (main->x > 1040*5) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 100;
+				*room = 6;
+			}
+		}
 		//doors
 		if (main->door[4])
 			main->tx = 1080 * 5;
 		else if (main->door[3])
 			main->tx = 1030 * 5;
 		else if (main->door[2])
-			main->tx = 980 * 5;
+			main->tx = 780 * 5;
 		else if (main->door[1])
-			main->tx = 750 * 5;
-		else
 			main->tx = 550 * 5;
+		else
+			main->tx = 300 * 5;
 
 		break;
 
+	case 2:
+		main->tx = 1600;
+		if (main->wx > 700) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+					main->x = 230*5;
+					*room = 1;
+					main->door[1] = 1;
+			}
+		}
+	
+		//
+		break;
+	case 3:
+		main->tx = 1600;
+		if (main->wx > 700) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 430*5;
+				*room = 1;
+				main->door[2] = 1;
+			}
+		}
+
+		//
+		break;
+	case 4:
+		main->tx = 1600;
+		if (main->wx > 700) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 630*5;
+				*room = 1;
+				main->door[3] = 1;
+			}
+		}
+
+		//
+		break;
+	case 5:
+		main->tx = 1600;
+		if (main->wx > 700) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 830*5;
+				*room = 1;
+				main->door[4] = 1;
+			}
+		}
+
+		//
+		break;
+	case 6:
+		main->tx = 800;
+		if (main->wx < 100) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 1030*5;
+				*room = 1;
+				main->door[5] = 1;
+			}
+		}
+
+		//
+		break;
 	}
+	int tx;
+
+	if(*room!=1)
+		tx=main->tx;
+	else
+		tx=1080*5;
+
+
 	battery.setScale((*window).getSize().x / 800.0/2, (*window).getSize().y / 600.0);
 	battery.setPosition((*window).getSize().x / 800.0 * 100, (*window).getSize().y / 600.0 * 100);
-	rom.setTexture(textures[3+*room]);
-	rom.setScale((*window).getSize().x / 800.0, (*window).getSize().y / 600.0);
-	animation.setScale((*window).getSize().x / 800.0, (*window).getSize().y / 600.0);
-	rom.setColor(Color(255 - (100 - main->san)*02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
+	
 	animation.setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
 	
 	if (Keyboard::isKeyPressed(Keyboard::Escape))
@@ -240,7 +345,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		*current_scr = 0;
 	}
 	if (main->cs == 1) {
-		main->cs = cutscene(main->cut, &main->rectA, &animation, 800,600, 15, 0, 8);
+		main->cs = cutscene(main->cut, &main->rectA, &animation, 800,600, 15, 0, 5);
 		if ((main->cs ) == 0 && main->a[0] == 0)
 			main->a[0] = 1;
 
@@ -259,7 +364,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		main->x = main->x -5 / delta;
 		main->ang = abs(main->ang);
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::D) && main->wx < 800-15*5 ) {
+	else if (Keyboard::isKeyPressed(Keyboard::D) && main->x < main->tx-15*5 ) {
 		main->line = 1;
 		main->dir = 1;
 		main->x = main->x +5 / delta;
@@ -308,17 +413,26 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 
 	}
 	//move all
+	
 	if (main->x < 400)
 		main->wx = main->x;
-	else if (main->x > main->tx - 400)
-		main->wx = main->x-main->tx+800;
+	else if (main->x > (main->tx - 400))
+		main->wx =800-(main->tx-main->x);
 	else
 		main->wx = 400;
-
-
 	//set parameters
+
+	animate(clock, &rectMc, &mc, 5 * 32, 5 * 32, main->frames, main->line, 10);
+	IntRect rerom(0, 0, tx, 600);
+	Sprite rom(textures[3 + *room + (*room / 2 >= 1) * 3], rerom);
+	rom.setScale((*window).getSize().x / (800.0), (*window).getSize().y / 600.0);
+	animate(clock, &rerom, &rom, tx, 600, 2, 0, 4);
+
+	animation.setScale((*window).getSize().x / 800.0, (*window).getSize().y / 600.0);
+	rom.setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
+
 	l.setColor(sf::Color(255, 255, 255, 50));
-	rom.setPosition(main->wx-main->x, 0);
+	rom.setPosition((main->wx-main->x)* (*window).getSize().x / 800.0, 0);
 	animation.setPosition(0, 0);
 	l.setRotation(main->ang);
 	l.setPosition((main->wx + ((main->dir + 1) / 2 - 1) * 10 - 32 * 2 + 17 * 5)* ((*window).getSize().x) / 800.0, (main->y + 13 * 5) * ((*window).getSize().y) / 600.0);	arm.setRotation(main->ang);
@@ -327,8 +441,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 	mc.scale((*window).getSize().x / 800.0, (*window).getSize().y / 600.0);
 	arm.scale((*window).getSize().x / 800.0, (*window).getSize().y / 600.0);
 	// Draw
-	
-	animate(clock, &rectMc, &mc, 5 * 32, main->frames, main->line, 10);
+
 	if (rectMc.left == 0 && main->line == 1 && main->cs == 0) {
 		if (sound->getStatus() != sound->Playing)
 			sound->play();
@@ -420,6 +533,7 @@ void draw_scr(Texture* textures,double delta,Clock clock,shadow* main,int* room,
 	case 0:
 		draw_menu(current_scr,textures, window);
 		init_main(main);
+		*room = 0;
 		break;
 	case 1:
 		draw_game(sound,textures,delta, clock,main,room,current_scr, window, event, cursorLine);
@@ -434,7 +548,7 @@ void draw_scr(Texture* textures,double delta,Clock clock,shadow* main,int* room,
 
 Texture* load_textures() {
 	Texture *textures;
-	textures=(Texture*)malloc(sizeof(Texture) * 8);
+	textures=(Texture*)malloc(sizeof(Texture) * 13);
 
 	Texture shadowsheet;
 	if (!shadowsheet.loadFromFile("img/shadowsheet.png", IntRect(0, 0, 800, 480))) {
@@ -455,13 +569,13 @@ Texture* load_textures() {
 
 	}
 	Texture rooml;
-	if (!rooml.loadFromFile("img/rooms.png", sf::IntRect(0, 0, 800, 600))) {
+	if (!rooml.loadFromFile("img/rooms.png", sf::IntRect(0, 0, 2*800, 600))) {
 		perror("failed to load room image");
 		exit(1);
 
 	}
 	Texture room;
-	if (!room.loadFromFile("img/hall.png", sf::IntRect(0, 0, 5400, 600))) {
+	if (!room.loadFromFile("img/hall.png", sf::IntRect(0, 0, 2*5400, 600))) {
 		perror("failed to load room image");
 		exit(1);
 	}
@@ -480,6 +594,31 @@ Texture* load_textures() {
 		perror("failed to load menu image");
 		exit(1);
 	}
+	Texture r;
+	if (!r.loadFromFile("img/room.png", sf::IntRect(0, 0, 3200, 600))) {
+		perror("failed to load room image");
+		exit(1);
+	}
+	Texture wheel;
+	if (!wheel.loadFromFile("img/wheel.png", sf::IntRect(0, 0, 3200, 600))) {
+		perror("failed to load room image");
+		exit(1);
+	}
+	Texture mummy;
+	if (!mummy.loadFromFile("img/mummy.png", sf::IntRect(0, 0, 3200, 600))) {
+		perror("failed to load room image");
+		exit(1);
+	}
+	Texture empty;
+	if (!empty.loadFromFile("img/empty.png", sf::IntRect(0, 0, 3200, 600))) {
+		perror("failed to load room image");
+		exit(1);
+	}
+	Texture lobby;
+	if (!lobby.loadFromFile("img/lobby.png", sf::IntRect(0, 0, 1600, 600))) {
+		perror("failed to load lobby image");
+		exit(1);
+	}
 	textures[0] = shadowsheet;
 	textures[1] = armt;
 	textures[2] = ltr;
@@ -488,7 +627,11 @@ Texture* load_textures() {
 	textures[5] = hidden;
 	textures[6] = animation_1;
 	textures[7] = menu;
-
+	textures[8] = r;
+	textures[9] = wheel;
+	textures[10] = mummy;
+	textures[11] = empty;
+	textures[12] = lobby;
 	return textures;
 
 }
@@ -550,7 +693,7 @@ int main(void) {
 		cursor.setTextureRect(cursorRect);
 		cursor.setOrigin(20, 20);
 		cursor.setPosition(static_cast<Vector2f>(Mouse::getPosition(window)));
-		animate(clock, &cursorRect, &cursor, 50, 3, cursorLine, 4);
+		animate(clock, &cursorRect, &cursor, 50,50, 3, cursorLine, 4);
 		window.draw(cursor);
 		window.display();
 		ot = nt;
