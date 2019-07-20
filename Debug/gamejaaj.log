@@ -1,111 +1,144 @@
 ﻿  main.cpp
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(62,47): warning C4244:  'argumento': conversão de 'float' para 'unsigned int', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(97,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(98,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(99,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(100,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(101,122): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(101,45): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(102,77): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(102,41): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(103,77): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(103,41): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(104,77): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(104,41): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:         with
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:             T=int
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:         and
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:             T=float
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,96): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:         with
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:             T=int
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:         and
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:             T=float
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(107,65): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:         with
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:             T=int
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:         and
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:             T=float
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,101): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:         with
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:             T=int
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:         and
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:             T=float
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(112,70): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:         with
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:             T=int
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:         and
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:             T=float
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,101): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:         with
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:             T=int
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:         and
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:             T=float
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(117,70): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(177,68): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(177,37): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(188,21): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(194,21): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(209,199): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(215,198): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(244,157): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(244,103): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(245,151): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(245,101): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(246,141): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(246,98): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(247,64): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(247,33): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(248,65): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(248,34): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(131,6): warning C4101:  'h': variável local não referenciada
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(274,48): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(275,102): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(302,48): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(303,75): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(303,42): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(307,49): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:         with
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:             T=int
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:         and
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:             T=float
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,98): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:         with
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:             T=int
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:         and
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:         [
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:             T=float
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(311,67): warning C4244:         ]
-C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(421,27): warning C4244:  '=': conversão de 'sf::Int64' para 'double', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(69,47): warning C4244:  'argumento': conversão de 'float' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(89,84): warning C4305:  'argumento': truncamento de 'double' para 'float'
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(90,92): warning C4305:  'argumento': truncamento de 'double' para 'float'
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(93,55): warning C4305:  'argumento': truncamento de 'double' para 'float'
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(96,118): warning C4305:  'argumento': truncamento de 'double' para 'float'
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(99,55): warning C4305:  'argumento': truncamento de 'double' para 'float'
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(102,114): warning C4305:  'argumento': truncamento de 'double' para 'float'
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(105,55): warning C4305:  'argumento': truncamento de 'double' para 'float'
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(115,69): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(115,38): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(135,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(136,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(137,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(138,46): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(139,122): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(139,45): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(140,77): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(140,41): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(141,77): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(141,41): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(142,77): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(142,41): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,96): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,96): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,96): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,96): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,96): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,96): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,96): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,96): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,96): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,65): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,65): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,65): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,65): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,65): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,65): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,65): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,65): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(145,65): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,101): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,101): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,101): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,101): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,101): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,101): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,101): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,101): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,101): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,70): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,70): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,70): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,70): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,70): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,70): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,70): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,70): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(150,70): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,101): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,101): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,101): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,101): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,101): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,101): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,101): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,101): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,101): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,70): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,70): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,70): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,70): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,70): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,70): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,70): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,70): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(155,70): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(187,83): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(187,47): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(188,88): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(188,51): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(198,10): warning C4244:  '=': conversão de 'float' para 'int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(203,74): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(203,48): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(204,89): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(204,52): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(206,91): warning C4244:  'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(206,61): warning C4244:  'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(206,31): warning C4244:  'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(231,21): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(237,21): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(252,199): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(258,198): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(263,33): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(270,25): warning C4244:  '=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(295,70): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(295,37): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(298,74): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(298,43): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(299,85): warning C4244:  'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(299,55): warning C4244:  'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(299,25): warning C4244:  'argumento': conversão de 'float' para 'sf::Uint8', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(302,60): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(305,157): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(305,103): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(306,151): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(306,101): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(307,141): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(307,98): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(308,64): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(308,33): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(309,65): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(309,34): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(333,101): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(333,72): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(482,66): warning C4305:  'argumento': truncamento de 'double' para 'float'
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(483,74): warning C4305:  'argumento': truncamento de 'double' para 'float'
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(178,6): warning C4101:  'h': variável local não referenciada
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(507,48): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(508,102): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(535,48): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(536,75): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(536,42): warning C4244:  'argumento': conversão de 'double' para 'float', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(540,49): warning C4244:  'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,98): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,98): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,98): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,98): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,98): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,98): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,98): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,98): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,98): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,67): warning C4244:  'argumento': conversão de 'T' para 'T', possível perda de dados
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,67): warning C4244:         with
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,67): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,67): warning C4244:             T=int
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,67): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,67): warning C4244:         and
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,67): warning C4244:         [
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,67): warning C4244:             T=float
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(544,67): warning C4244:         ]
+C:\Users\PICHAU\source\repos\gamejaaj\main.cpp(702,27): warning C4244:  '=': conversão de 'sf::Int64' para 'double', possível perda de dados
   gamejaaj.vcxproj -> C:\Users\PICHAU\source\repos\gamejaaj\Debug\gamejaaj.exe
