@@ -46,8 +46,6 @@ int cutscene(Clock clock,IntRect* rectSourceSprite, Sprite* sprite, int sizex, i
 	}
 	
 	return 0;
-
-
 }
 
 void animate(Clock clock, IntRect* rectSourceSprite, Sprite* sprite, int sizex,int sizey, int frames, int line, int fps) {
@@ -168,13 +166,22 @@ void draw_menu(int* current_scr,Texture * textures ,RenderWindow *window) {
 	(*window).draw(opt3);
 }
 
-void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow* main, int* room, int* current_scr, RenderWindow* window, Event& event, int *cursorLine) {
+Sprite get_prop(Clock clock, Texture* textures, int line, float x, float y) {
+	IntRect propRect(0,0,50,50);
+	Sprite prop(textures[5], propRect);
+	animate(clock, &propRect, &prop, 50, 50, 3, line, 3);
+	prop.setPosition(x, y);
+	return prop;
+}
+
+void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow* main, int* room, int* current_scr, RenderWindow* window, Event& event, int *cursorLine, int *propLine) {
 	int h;
 
 	IntRect rectMc(0, 0, 160, 160), rectArm(0, 0, 160, 160), rectl(0, 0, 480, 160) ,rectB(0,500,50,50), rectE(0, 0, 30, 30);
 	Sprite mc(textures[0], rectMc),arm(textures[1], rectArm), l(textures[2], rectl),animation(textures[6],main->rectA),battery(textures[5],rectB);
 	Texture rooml,green;
 	Sprite  energy(green,rectE);
+	Sprite prop[4];
 	energy.setColor(Color::Green);
 	energy.setOrigin(-10, 0);
 	energy.setScale((*window).getSize().x / 800.0/2, (*window).getSize().y / 600.0*-1*(main->battery/100));
@@ -184,149 +191,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 	mc.setScale(1, 1);
 	arm.setScale(1, 1);
 	l.setScale(1, 1);
-	switch (*room) 
-	{
-	case 0:
-		main->tx = 800;
-		if (main->x > 700) {
-			main->x = 23 * 5;
-			*room = 1;
-			main->door[0] = 1;
-		}
-		if (main->a[0] == 0) {
-			if (main->cs == 0) {
-				main->cut.restart();
-			}
-			main->cs = 1;
-			
-		}
-		if (!(main->cut.getElapsedTime().asSeconds() < 10 && main->door[0]==0 && !Keyboard::isKeyPressed(Keyboard::D) ) ){
-			main->chat = 1;
-
-		}
-		//
-		break;
-	case 1:	
-
-		if (main->x < 20*5) {
-			main->x = 650;
-			*room = 0;
-		}
-		else if (main->x > 200*5 && main->x < 228*5) {
-			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-				main->x = 1400;
-				*room = 2;
-			}
-		}
-		else if (main->x > 400*5 && main->x < 428*5) {
-			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-				main->x = 1400;
-				*room = 3;
-			}
-		}
-		else if (main->x > 600 * 5 && main->x < 628 * 5) {
-			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-				main->x = 1400;
-				*room = 4;
-			}
-		}
-		else if (main->x > 800 * 5 && main->x < 828 * 5) {
-			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-				main->x = 1400;
-				*room = 5;
-			}
-		}
-		else if (main->x > 1040*5) {
-			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-				main->x = 100;
-				*room = 6;
-			}
-		}
-		//doors
-		if (main->door[4])
-			main->tx = 1080 * 5;
-		else if (main->door[3])
-			main->tx = 1030 * 5;
-		else if (main->door[2])
-			main->tx = 780 * 5;
-		else if (main->door[1])
-			main->tx = 550 * 5;
-		else
-			main->tx = 300 * 5;
-
-		break;
-
-	case 2:
-		main->tx = 1600;
-		if (main->wx > 700) {
-			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-					main->x = 230*5;
-					*room = 1;
-					main->door[1] = 1;
-			}
-		}
 	
-		//
-		break;
-	case 3:
-		main->tx = 1600;
-		if (main->wx > 700) {
-			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-				main->x = 430*5;
-				*room = 1;
-				main->door[2] = 1;
-			}
-		}
-
-		//
-		break;
-	case 4:
-		main->tx = 1600;
-		if (main->wx > 700) {
-			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-				main->x = 630*5;
-				*room = 1;
-				main->door[3] = 1;
-			}
-		}
-
-		//
-		break;
-	case 5:
-		main->tx = 1600;
-		if (main->wx > 700) {
-			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-				main->x = 830*5;
-				*room = 1;
-				main->door[4] = 1;
-			}
-		}
-
-		//
-		break;
-	case 6:
-		main->tx = 800;
-		if (main->wx < 100) {
-			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
-				main->x = 1030*5;
-				*room = 1;
-				main->door[5] = 1;
-			}
-		}
-
-		//
-		break;
-	}
 	int tx;
 
 	if(*room!=1)
@@ -340,6 +205,8 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 	
 	animation.setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
 	
+	
+
 	if (Keyboard::isKeyPressed(Keyboard::Escape))
 	{
 		*current_scr = 0;
@@ -442,12 +309,169 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 	arm.scale((*window).getSize().x / 800.0, (*window).getSize().y / 600.0);
 	// Draw
 
+	switch (*room)
+	{
+	case 0:
+		main->tx = 800;
+		if (main->x > 700) {
+			main->x = 23 * 5;
+			*room = 1;
+			main->door[0] = 1;
+		}
+		if (main->a[0] == 0) {
+			if (main->cs == 0) {
+				main->cut.restart();
+			}
+			main->cs = 1;
+
+		}
+		if (!(main->cut.getElapsedTime().asSeconds() < 10 && main->door[0] == 0 && !Keyboard::isKeyPressed(Keyboard::D))) {
+			main->chat = 1;
+
+		}
+
+		prop[0] = get_prop(clock, textures, propLine[0], window->getSize().x * 0.665, window->getSize().y * 0.75);
+
+		if (prop[0].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
+			propLine[0] = 2;
+		}
+		else
+			propLine[0] = 0;
+
+		//
+		break;
+	case 1:
+
+		if (main->x < 20 * 5) {
+			main->x = 650;
+			*room = 0;
+		}
+		else if (main->x > 200 * 5 && main->x < 228 * 5) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 1400;
+				*room = 2;
+			}
+		}
+		else if (main->x > 400 * 5 && main->x < 428 * 5) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 1400;
+				*room = 3;
+			}
+		}
+		else if (main->x > 600 * 5 && main->x < 628 * 5) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 1400;
+				*room = 4;
+			}
+		}
+		else if (main->x > 800 * 5 && main->x < 828 * 5) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 1400;
+				*room = 5;
+			}
+		}
+		else if (main->x > 1040 * 5) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 100;
+				*room = 6;
+			}
+		}
+		//doors
+		if (main->door[4])
+			main->tx = 1080 * 5;
+		else if (main->door[3])
+			main->tx = 1030 * 5;
+		else if (main->door[2])
+			main->tx = 780 * 5;
+		else if (main->door[1])
+			main->tx = 550 * 5;
+		else
+			main->tx = 300 * 5;
+
+		break;
+
+	case 2:
+		main->tx = 1600;
+		if (main->wx > 700) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 230 * 5;
+				*room = 1;
+				main->door[1] = 1;
+			}
+		}
+
+		//
+		break;
+	case 3:
+		main->tx = 1600;
+		if (main->wx > 700) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 430 * 5;
+				*room = 1;
+				main->door[2] = 1;
+			}
+		}
+
+		//
+		break;
+	case 4:
+		main->tx = 1600;
+		if (main->wx > 700) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 630 * 5;
+				*room = 1;
+				main->door[3] = 1;
+			}
+		}
+
+		//
+		break;
+	case 5:
+		main->tx = 1600;
+		if (main->wx > 700) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 830 * 5;
+				*room = 1;
+				main->door[4] = 1;
+			}
+		}
+
+		//
+		break;
+	case 6:
+		main->tx = 800;
+		if (main->wx < 100) {
+			*cursorLine = 7;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->x = 1030 * 5;
+				*room = 1;
+				main->door[5] = 1;
+			}
+		}
+
+		//
+		break;
+	}
+
 	if (rectMc.left == 0 && main->line == 1 && main->cs == 0) {
 		if (sound->getStatus() != sound->Playing)
 			sound->play();
 	}
 	(*window).draw(rom);
 	(*window).draw(arm);
+	(*window).draw(prop[0]);
+	(*window).draw(prop[1]);
+	(*window).draw(prop[2]);
+	(*window).draw(prop[3]);
 	if(main->ltrn && main->battery>0)
 		(*window).draw(l);
 	(*window).draw(mc);
@@ -455,9 +479,13 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 	(*window).draw(energy);
 	write(0, window, 0.05, Color::White, 400, 150, (int)main->san,"");
 	write(1, window, 0.05, Color::White, 250, 150, (int)main->san, "sanity:");
-	
+
 	if (main->cs == 1) {
 		(*window).draw(animation);
+		(*window).draw(prop[0]);
+		(*window).draw(prop[1]);
+		(*window).draw(prop[2]);
+		(*window).draw(prop[3]);
 	}
 	chat(main->chat, window);
 
@@ -522,7 +550,7 @@ void draw_credits(int* current_scr, RenderWindow *window) {
 	(*window).draw(credits);
 }
 
-void draw_scr(Texture* textures,double delta,Clock clock,shadow* main,int* room,int* current_scr, RenderWindow *window, Event &event,Sound *sound, int *cursorLine) {
+void draw_scr(Texture* textures,double delta,Clock clock,shadow* main,int* room,int* current_scr, RenderWindow *window, Event &event,Sound *sound, int *cursorLine, int *propLine) {
 	/*
 	 *  0 - Menu
 	 *  1 - Game
@@ -536,7 +564,7 @@ void draw_scr(Texture* textures,double delta,Clock clock,shadow* main,int* room,
 		*room = 0;
 		break;
 	case 1:
-		draw_game(sound,textures,delta, clock,main,room,current_scr, window, event, cursorLine);
+		draw_game(sound,textures,delta, clock,main,room,current_scr, window, event, cursorLine, propLine);
 		break;
 	case 2:
 		draw_credits(current_scr, window);
@@ -637,7 +665,7 @@ Texture* load_textures() {
 }
 
 int main(void) {
-	int current_scr[1] = { 0 }, room = 0;
+	int current_scr[1] = { 0 }, room = 0, propLine[10] = {0,0,0,0,0,0,0,0,0,0};
 
 	// Initialize clock
 	Clock clock;
@@ -683,7 +711,7 @@ int main(void) {
 		if (time.asSeconds() <= 5)
 			draw_credits_gamso(&window);
 		else {
-			draw_scr(textures, delta, clock, &main, &room, current_scr, &window, event, &sound, &cursorLine);
+			draw_scr(textures, delta, clock, &main, &room, current_scr, &window, event, &sound, &cursorLine, propLine);
 			if (bg.getStatus() != bg.Playing && *current_scr == 1)
 				bg.play();
 			else if (bg.getStatus() == bg.Playing && *current_scr == 0)
