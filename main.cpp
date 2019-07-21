@@ -1,3 +1,7 @@
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 #include <iostream>
 #include <math.h>
 #include <SFML/Audio.hpp>
@@ -62,7 +66,7 @@ void write(int n, RenderWindow* window,float size, Color c,float x, float y,int 
 	Font font;
 	if (!font.loadFromFile("fonts/pc98.ttf")) {
 		cout << "Error loading fonts" << endl;
-		exit(1);
+		scanf("%*c");
 	}
 	Text texto;
 	texto.setFont(font);
@@ -143,7 +147,7 @@ void draw_menu(int* current_scr,Texture * textures ,RenderWindow *window) {
 	Font font;
 	if (!font.loadFromFile("fonts/pc98.ttf")) {
 		cout << "Error loading fonts" << endl;
-		exit(1);
+		scanf("%*c");
 	}
 	Text logo;
 	Text opt1;
@@ -207,7 +211,7 @@ void draw_gameover(Clock clock,int* current_scr, Texture* textures, RenderWindow
 	Font font;
 	if (!font.loadFromFile("fonts/pc98.ttf")) {
 		cout << "Error loading fonts" << endl;
-		exit(1);
+		scanf("%*c");
 	}
 	IntRect die(0, 0, 800, 600);
 	Sprite died(textures[13], die);
@@ -835,7 +839,7 @@ void draw_credits_gamso(RenderWindow *window) {
 	Font font;
 	if (!font.loadFromFile("fonts/pc98.ttf")) {
 		cout << "Error loading fonts" << endl;
-		exit(1);
+		scanf("%*c");
 	}
 	Text credits;
 	credits.setFont(font);
@@ -863,7 +867,7 @@ void draw_credits(int* current_scr, RenderWindow *window) {
 	Font font;
 	if (!font.loadFromFile("fonts/pc98.ttf")) {
 		cout << "Error loading fonts" << endl;
-		exit(1);
+		scanf("%*c");
 	}
 	Text voltar;
 	voltar.setFont(font);
@@ -927,81 +931,81 @@ Texture* load_textures() {
 	Texture shadowsheet;
 	if (!shadowsheet.loadFromFile("img/shadowsheet.png", IntRect(0, 0, 800, 480))) {
 		perror("failed to load shadowsheet image");
-		exit(1);
+		scanf("%*c");
 
 	}
 	Texture armt;
 	if (!armt.loadFromFile("img/arm.png", IntRect(0, 0, 32 * 5, 32 * 5))) {
 		perror("failed to load arm image");
-		exit(1);
+		scanf("%*c");
 
 	}
 	Texture ltr;
 	if (!ltr.loadFromFile("img/lantern.png", IntRect(0, 0, 480, 160))) {
 		perror("failed to load lantern image");
-		exit(1);
+		scanf("%*c");
 
 	}
 	Texture rooml;
 	if (!rooml.loadFromFile("img/rooms.png", sf::IntRect(0, 0, 2*800, 600))) {
 		perror("failed to load room image");
-		exit(1);
+		scanf("%*c");
 
 	}
 	Texture room;
 	if (!room.loadFromFile("img/hall.png", sf::IntRect(0, 0, 2*5400, 600))) {
 		perror("failed to load room image");
-		exit(1);
+		scanf("%*c");
 	}
 	Texture hidden;
 	if (!hidden.loadFromFile("img/hiddensheet.png", sf::IntRect(0, 0, 150, 600))) {
 		perror("failed to load objects image");
-		exit(1);
+		scanf("%*c");
 	}
 	Texture animation_1;
 	if (!animation_1.loadFromFile("img/room animation.png", sf::IntRect(0, 0, 15*800, 600))) {
 		perror("failed to load animation image");
-		exit(1);
+		scanf("%*c");
 	}
 	Texture menu;
 	if (!menu.loadFromFile("img/menu.png", sf::IntRect(0, 0, 800, 600))) {
 		perror("failed to load menu image");
-		exit(1);
+		scanf("%*c");
 	}
 	Texture r;
 	if (!r.loadFromFile("img/room.png", sf::IntRect(0, 0, 3200, 600))) {
 		perror("failed to load room image");
-		exit(1);
+		scanf("%*c");
 	}
 	Texture wheel;
 	if (!wheel.loadFromFile("img/wheel.png", sf::IntRect(0, 0, 3200, 600))) {
 		perror("failed to load room image");
-		exit(1);
+		scanf("%*c");
 	}
 	Texture mummy;
 	if (!mummy.loadFromFile("img/mummy.png", sf::IntRect(0, 0, 3200, 600))) {
 		perror("failed to load room image");
-		exit(1);
+		scanf("%*c");
 	}
 	Texture empty;
 	if (!empty.loadFromFile("img/empty.png", sf::IntRect(0, 0, 3200, 600))) {
 		perror("failed to load room image");
-		exit(1);
+		scanf("%*c");
 	}
 	Texture lobby;
 	if (!lobby.loadFromFile("img/lobby.png", sf::IntRect(0, 0, 1600, 600))) {
 		perror("failed to load lobby image");
-		exit(1);
+		scanf("%*c");
 	}
 	Texture die;
 	if (!die.loadFromFile("img/die.png", sf::IntRect(0, 0, 4*800, 600))) {
 		perror("failed to load died image");
-		exit(1);
+		scanf("%*c");
 	}	
 	Texture end;
 	if (!end.loadFromFile("img/final.png", sf::IntRect(0, 0, 4800, 3000))) {
 		perror("failed to load final image");
-		exit(1);
+		scanf("%*c");
 	}
 
 	textures[0] = shadowsheet;
@@ -1041,11 +1045,11 @@ int main(void) {
 	SoundBuffer walk,bgm;
 	if (!walk.loadFromFile("sound/walk.wav")) {
 		cout << "Error loading sound" << endl;
-		exit(1);
+		scanf("%*c");
 	}
 	if (!bgm.loadFromFile("sound/bgm.wav")) {
 		cout << "Error loading sound" << endl;
-		exit(1);
+		scanf("%*c");
 	}
 	Sound sound,bg;
 	sound.setBuffer(walk);
