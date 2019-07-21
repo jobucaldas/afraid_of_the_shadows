@@ -33,7 +33,7 @@ void init_main(shadow* main) {
 	main->ang = 0;
 	main->door[0] = 0;
 	main->door[1] = 0;
-	IntRect a(0, 0, 800, 600);
+	IntRect a(0, 0, 160, 120);
 	main->rectA = a;
 	main->door[2] = 0;
 	main->door[3] = 0;
@@ -297,7 +297,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		*current_scr = 0;
 	}
 	if (main->cs == 1) {
-		main->cs = cutscene(main->cut, &main->rectA, &animation, 800,600, 15, 0, 5);
+		main->cs = cutscene(main->cut, &main->rectA, &animation, 160,120, 15, 0, 5);
 		if ((main->cs ) == 0 && main->a[0] == 0)
 			main->a[0] = 1;
 		for (int i = 0; i < 10; i++)
@@ -376,10 +376,10 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 	Sprite rom(textures[3 + *room + (*room / 2 >= 1) * 3], rerom);
 	rom.setScale((*window).getSize().x / (800.0), (*window).getSize().y / 600.0);
 	animate(clock, &rerom, &rom, tx, 600, 2, 0, 4);
-
+	
 	animation.setScale((*window).getSize().x / 800.0, (*window).getSize().y / 600.0);
 	rom.setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
-
+	animation.scale(5, 5);
 	l.setColor(sf::Color(255, 255, 255, 50));
 	rom.setPosition((main->wx-main->x)* (*window).getSize().x / 800.0, 0);
 	animation.setPosition(0, 0);
@@ -964,7 +964,7 @@ Texture* load_textures() {
 		scanf("%*c");
 	}
 	Texture animation_1;
-	if (!animation_1.loadFromFile("img/room animation.png", sf::IntRect(0, 0, 15*800, 600))) {
+	if (!animation_1.loadFromFile("img/room animation.png", sf::IntRect(0, 0, 15*160, 140))) {
 		perror("failed to load animation image");
 		scanf("%*c");
 	}
