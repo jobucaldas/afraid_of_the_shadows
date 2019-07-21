@@ -7,12 +7,13 @@ using namespace std;
 using namespace sf;
 typedef struct {
 	float x, y, ang,wx,tx, battery,san;
-	int frames, line, dir, jump,ltrn, door[6],a[1], cs,chat,ignore;
+	int frames, line, dir, jump,ltrn, door[6],a[1], cs,chat,ignore,endline;
 	IntRect rectA;
 	Clock cut,ch;
 }shadow;
 
 void init_main(shadow* main) {
+	main->endline = 0;
 	main->ignore=0;
 	main->chat = 0;
 	main->battery = 100;
@@ -88,7 +89,7 @@ void chat(int n, RenderWindow* window) {
 	switch (n) {
 	case 0:
 		write(1, window, 0.03, Color::White, 350, 650, 10, "Está muito escuro aqui...\n");
-		write(1, window, 0.02, Color::White, 350, 650, 10, "\n \n ainda bem que há uma lanterna");
+		write(1, window, 0.02, Color::White, 350, 650, 10, "\n \n ainda bem que há uma lanterna\n ..... o que é aquilo?");
 		break;
 	case 2:
 
@@ -100,6 +101,29 @@ void chat(int n, RenderWindow* window) {
 		break;
 	case 6:
 		write(1, window, 0.03, Color::White, 50, 650, 10, "SAIA DO MEU QUARTO,\n crianças não deveriam estar aqui...");
+		break;
+	case 8:
+		write(1, window, 0.08, Color::White, 50, 650, 10, "*****ROOOONCO******");
+		break;
+
+	case 10:
+		write(1, window, 0.03, Color::White, 50, 650, 10, "nada aqui");
+		break;
+
+	case 101:
+		write(1, window, 0.03, Color::White, 350, 650, 10, "vamos, filho");
+		break;
+	case 102:
+		write(1, window, 0.03, Color::White, 350, 650, 10, "sua mãe está nos esperando em casa");
+		break;
+	case 103:
+		write(1, window, 0.03, Color::White, 350, 650, 10, "estavamos ansiosos por sua alta");
+		break;
+	case 104:
+		write(1, window, 0.03, Color::White, 350, 650, 10, "não precisa ter medo, estou aqui");
+		break;
+	case 100:
+		write(1, window, 0.03, Color::White, 350, 650, 10, "alguém pode iluminar?");
 		break;
 
 	default:
@@ -175,14 +199,71 @@ Sprite get_prop(Clock clock, Texture* textures, int line, float x, float y) {
 	return prop;
 }
 
+void draw_gameover(Clock clock,int* current_scr, Texture* textures, RenderWindow* window,int*room,shadow* main, int propLine[]) {
+	for (int i = 0; i < 10; i++)
+		propLine[i] = 0;
+	main->battery = 100;
+	main->san = 100;
+	Font font;
+	if (!font.loadFromFile("fonts/pc98.ttf")) {
+		cout << "Error loading fonts" << endl;
+		exit(1);
+	}
+	IntRect die(0, 0, 800, 600);
+	Sprite died(textures[13], die);
+	died.setPosition(0, 0);
+	died.setScale((*window).getSize().x/800.0, (*window).getSize().y / 600.0);
+	animate(clock, &die, &died, 800, 600, 4, 0, 10);
+	(*window).draw(died);
+
+	Text gameover;
+	gameover.setFont(font);
+	gameover.setString("Você teve um ataque cardíaco!");
+	gameover.setCharacterSize((*window).getSize().y * 0.08);
+	gameover.setPosition((*window).getSize().x / 2 - gameover.getGlobalBounds().width / 2, (*window).getSize().y / 2 / 2 - (*window).getSize().y * 0.08 / 2);
+	Text menu;
+	menu.setFont(font);
+	menu.setString("Voltar ao menu");
+	menu.setCharacterSize((*window).getSize().y * 0.05);
+	menu.setPosition((*window).getSize().x / 2 + 50, (*window).getSize().y / 2 / 2 * 3);
+	Text retry;
+	retry.setFont(font);
+	retry.setString("Tentar novamente");
+	retry.setCharacterSize((*window).getSize().y * 0.05);
+	retry.setPosition((*window).getSize().x / 2 - 50 - retry.getGlobalBounds().width, (*window).getSize().y / 2 / 2 * 3);
+
+	// Menu events
+	if (menu.getGlobalBounds().contains(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)) {
+		menu.setFillColor(Color::Magenta);
+		if (Mouse::isButtonPressed(Mouse::Left))
+			* current_scr = 0;
+	}
+	else if (retry.getGlobalBounds().contains(Mouse::getPosition(*window).x, Mouse::getPosition(*window).y)) {
+		retry.setFillColor(Color::Magenta);
+		if (Mouse::isButtonPressed(Mouse::Left)) {
+			*current_scr = 1;
+			init_main(main);
+			*room = 0;
+		}
+	}
+
+	(*window).draw(gameover);
+	(*window).draw(menu);
+	(*window).draw(retry);
+}
+
 void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow* main, int* room, int* current_scr, RenderWindow* window, Event& event, int *cursorLine, int *propLine) {
 	int h;
 
-	IntRect rectMc(0, 0, 160, 160), rectArm(0, 0, 160, 160), rectl(0, 0, 480, 160) ,rectB(0,500,50,50), rectE(0, 0, 30, 30);
+		
+	IntRect rectMc(0, 0, 160, 160),rectFINAL(0,0,800,600), rectArm(0, 0, 160, 160), rectl(0, 0, 480, 160) ,rectB(0,500,50,50), rectE(0, 0, 30, 30);
 	Sprite mc(textures[0], rectMc),arm(textures[1], rectArm), l(textures[2], rectl),animation(textures[6],main->rectA),battery(textures[5],rectB);
 	Texture rooml,green;
-	Sprite  energy(green,rectE);
-	Sprite prop[6];
+	Sprite  energy(green,rectE),end(textures[14],rectFINAL);
+	Sprite prop[10];
+	end.setOrigin(0, 0);
+	end.setScale((*window).getSize().x / 800.0 , (*window).getSize().y / 600.0 );
+	end.setPosition(0,0);
 	energy.setColor(Color::Green);
 	energy.setOrigin(-10, 0);
 	energy.setScale((*window).getSize().x / 800.0/2, (*window).getSize().y / 600.0*-1*(main->battery/100));
@@ -207,7 +288,6 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 	animation.setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
 	
 	
-
 	if (Keyboard::isKeyPressed(Keyboard::Escape))
 	{
 		*current_scr = 0;
@@ -216,36 +296,30 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		main->cs = cutscene(main->cut, &main->rectA, &animation, 800,600, 15, 0, 5);
 		if ((main->cs ) == 0 && main->a[0] == 0)
 			main->a[0] = 1;
-
+		for (int i = 0; i < 10; i++)
+			propLine[i] = 0;
+		main->battery = 100;
+		main->san = 100;
 		main->dir = 1;
 		main->line = 0;
 		main->chat = 0;
 	}
-	else if (main->chat % 2==0 && main->ignore==0) {
-		main->dir = 1;
-		main->line = 0;
-		main->san = main->san + 0.05 / delta;
-	}
-	else if (Keyboard::isKeyPressed(Keyboard::A) && main->wx>8*5 ) {
+	else if (Keyboard::isKeyPressed(Keyboard::A) && main->wx>8*5 &&(*room!=6 || main->x<500)) {
 
 	
 		main->line = 1;
 		main->dir = -1;
-		main->x = main->x -5 / delta;
+		main->x = main->x - 8 / delta;
 		main->ang = abs(main->ang);
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::D) && main->x < main->tx-15*5 ) {
 		main->line = 1;
 		main->dir = 1;
-		main->x = main->x +5 / delta;
+		main->x = main->x + 8 / delta;
 		main->ang = -abs(main->ang);
 	}
 	else {
 		main->line = 0;
-	}
-	if (Keyboard::isKeyPressed(Keyboard::W)) {
-		main->line = 2;
-
 	}
 	//move arm
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -273,6 +347,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		main->san = main->san - 0.1 / delta;
 	}
 	if (main->san <= 0) {
+		*current_scr = 3;
 		main->san = 0;
 	}
 	//flip
@@ -311,6 +386,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 	mc.scale((*window).getSize().x / 800.0, (*window).getSize().y / 600.0);
 	arm.scale((*window).getSize().x / 800.0, (*window).getSize().y / 600.0);
 	// Draw
+	main->san = main->san - 0.02 / delta;
 	switch (*room)
 	{
 	case 0:
@@ -467,13 +543,14 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 				main->chat = 4;
 				main->ch.restart();
 			}
-			else if (main->ch.getElapsedTime().asSeconds() < 4) {
+			else if (main->ch.getElapsedTime().asSeconds() < 4 ) {
 				main->chat = 4;
 			}
-			else {
-				main->chat = 1;
-				main->ignore = 0;
-			}
+			
+		}
+		else {
+			main->chat = 1;
+			main->ignore = 0;
 		}
 
 		//
@@ -507,10 +584,10 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 			else if (main->ch.getElapsedTime().asSeconds() < 4) {
 				main->chat = 6;
 			}
-			else {
-				main->chat = 1;
-				main->ignore = 0;
-			}
+		}
+		else {
+			main->chat = 1;
+			main->ignore = 0;
 		}
 		prop[4] = get_prop(clock, textures, propLine[4], (main->wx - main->x + 400) * (*window).getSize().x / 800.0, window->getSize().y * 0.75);
 		if (prop[4].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
@@ -525,12 +602,46 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		main->tx = 1600;
 		if (main->wx > 700) {
 			*cursorLine = 7;
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right)&& propLine[5]!=0) {
 				main->x = 630 * 5;
 				*room = 1;
 				main->door[3] = 1;
 			}
+			else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->chat = 2;
+				main->ch.restart();
+			}
+			else if (main->ch.getElapsedTime().asSeconds() < 4) {
+				main->chat = 2;
+			}
+			else {
+				main->chat = 1;
+			}
 		}
+		else if (main->x < 500) {
+			if (main->ignore == 0) {
+				main->ignore = 1;
+				main->chat = 8;
+				main->ch.restart();
+			}
+			else if (main->ch.getElapsedTime().asSeconds() < 4) {
+				main->chat = 8;
+			}
+		}
+		else {
+			main->chat = 1;
+			main->ignore = 0;
+		}
+		prop[5] = get_prop(clock, textures, propLine[5], (main->wx - main->x + 60*5) * (*window).getSize().x / 800.0, window->getSize().y /600.0*(74*5));
+		if (prop[5].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
+			propLine[5] = 6;
+		}
+		if (propLine[5] == 0) {
+			main->san = main->san - 0.05 / delta;
+		}
+		
+		
+		
 
 		//
 		break;
@@ -543,7 +654,54 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 				*room = 1;
 				main->door[4] = 1;
 			}
+			else if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
+				main->chat = 2;
+				main->ch.restart();
+			}
+			else if (main->ch.getElapsedTime().asSeconds() < 4) {
+				main->chat = 2;
+			}
+			else {
+				main->chat = 1;
+			}
 		}
+		else if (main->x < 500) {
+			if (main->ignore == 0) {
+				main->ignore = 1;
+				main->chat = 10;
+				main->ch.restart();
+			}
+			else if (main->ch.getElapsedTime().asSeconds() < 4) {
+				main->chat = 10;
+			}
+
+		}
+		else {
+			main->chat = 1;
+			main->ignore = 0;
+		}
+		prop[6] = get_prop(clock, textures, propLine[6], (main->wx - main->x + 60 * 5) * (*window).getSize().x / 800.0, window->getSize().y / 600.0 * (74*5));
+		if (prop[6].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
+			propLine[6] = 6;
+		}
+		prop[7] = get_prop(clock, textures, propLine[7], (main->wx - main->x + 90 * 5) * (*window).getSize().x / 800.0, window->getSize().y / 600.0 * (450));
+		if (prop[7].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
+			propLine[7] = 9;
+		}
+		prop[8] = get_prop(clock, textures, propLine[8], (main->wx - main->x + 30 * 5) * (*window).getSize().x / 800.0, window->getSize().y / 600.0 * (350));
+		if (prop[8].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
+			propLine[8] = 2;
+		}
+		prop[9] = get_prop(clock, textures, propLine[9], (main->wx - main->x + 260 * 5) * (*window).getSize().x / 800.0, window->getSize().y / 600.0 * (74 * 5));
+		if (prop[9].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
+			propLine[9] = 11;
+		}
+		if (propLine[6] == 0|| propLine[7] == 0|| propLine[8] == 0|| propLine[9] == 0) {
+			main->san = main->san - 0.05 / delta;
+		}
+
+		
+		
 
 		//
 		break;
@@ -572,17 +730,79 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 	prop[3].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
 	prop[4].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
 	prop[5].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
+	prop[6].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
+	prop[7].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
+	prop[8].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
+	prop[9].setColor(Color(255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02, 255 - (100 - main->san) * 02));
 	(*window).draw(rom);
-	(*window).draw(arm);
+
 	(*window).draw(prop[0]);
 	(*window).draw(prop[1]);
 	(*window).draw(prop[2]);
 	(*window).draw(prop[3]);
 	(*window).draw(prop[4]);
 	(*window).draw(prop[5]);
-	if(main->ltrn && main->battery>0)
-		(*window).draw(l);
-	(*window).draw(mc);
+	(*window).draw(prop[6]);
+	(*window).draw(prop[7]);
+	(*window).draw(prop[8]);
+	(*window).draw(prop[9]);
+	
+	
+	if (*room != 6) {
+		(*window).draw(arm);
+		if (main->ltrn && main->battery > 0)
+			(*window).draw(l);
+		(*window).draw(mc);
+		if (main->san < 80)
+			write(1, window, 0.04, Color::White, 100, 600, 0, "clima estranho...");
+		if (main->san < 50)
+			write(1, window, 0.04, Color::White, 300, 200, 0, "essa escuridão me assusta...");
+		if (main->san < 40)
+			write(1, window, 0.04, Color::White, 400, 100, 0, "... acho q ouvi algo...");
+		if (main->san < 30)
+			write(1, window, 0.04, Color::White, 500, 300, 0, "... alguém me tira daqui...");
+		if (main->san < 20)
+			write(1, window, 0.04, Color::White, 400, 400, 0, "... não consigo ver nada...");
+		if (main->san < 10)
+			write(1, window, 0.04, Color::White, 200, 500, 0, "... é o fim.....");
+	}
+	else {
+		animate(main->cut, &rectFINAL, &end, 800, 600, 6, main->endline, 6);
+		if (main->endline <= 2) {
+			(*window).draw(mc);
+			(*window).draw(arm);
+		}
+		if (main->ltrn && main->battery > 0) {
+			(*window).draw(l);
+			if (main->endline == 0) {
+				main->endline = 1;
+				animate(main->cut, &rectFINAL, &end, 800, 600, 6, main->endline, 6);
+			}
+		}
+		if (main->endline == 1 && rectFINAL.left == 800 * 5) {
+			main->endline = 2;
+		}
+		if (main->endline == 2 && main->x > 100 * 5) {
+			main->cut.restart();
+			main->endline = 3;
+			animate(main->cut, &rectFINAL, &end, 800, 600, 6, main->endline, 6);
+		}
+		if (main->endline == 3 && rectFINAL.left == 800 * 5) {
+			main->cut.restart();
+			main->endline = 4;
+		}
+		if (main->endline == 4 && main->cut.getElapsedTime().asSeconds()>=1) {
+			rectFINAL.left = 800 * 5;
+		}
+
+
+
+
+
+		main->chat = main->endline+100;
+		(*window).draw(end);
+	}
+
 	(*window).draw(battery);
 	(*window).draw(energy);
 	write(0, window, 0.05, Color::White, 400, 150, (int)main->san,"");
@@ -596,7 +816,12 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		(*window).draw(prop[3]);
 		(*window).draw(prop[4]);
 		(*window).draw(prop[5]);
+		(*window).draw(prop[6]);
+		(*window).draw(prop[7]);
+		(*window).draw(prop[8]);
+		(*window).draw(prop[9]);
 	}
+	
 	chat(main->chat, window);
 
 
@@ -665,6 +890,7 @@ void draw_scr(Texture* textures,double delta,Clock clock,shadow* main,int* room,
 	 *  0 - Menu
 	 *  1 - Game
 	 *  2 - Credits
+		3-  F
 	 */
 
 	switch (*current_scr) {
@@ -672,12 +898,19 @@ void draw_scr(Texture* textures,double delta,Clock clock,shadow* main,int* room,
 		draw_menu(current_scr,textures, window);
 		init_main(main);
 		*room = 0;
+		for (int i = 0; i < 10; i++)
+			propLine[i] = 0;
+		main->battery = 100;
+		main->san = 100;
 		break;
 	case 1:
 		draw_game(sound,textures,delta, clock,main,room,current_scr, window, event, cursorLine, propLine);
 		break;
 	case 2:
 		draw_credits(current_scr, window);
+		break;
+	case 3:
+		draw_gameover(clock,current_scr, textures,window,room,main,propLine);
 		break;
 	default:
 		break;
@@ -686,7 +919,7 @@ void draw_scr(Texture* textures,double delta,Clock clock,shadow* main,int* room,
 
 Texture* load_textures() {
 	Texture *textures;
-	textures=(Texture*)malloc(sizeof(Texture) * 13);
+	textures=(Texture*)malloc(sizeof(Texture) * 15);
 
 	Texture shadowsheet;
 	if (!shadowsheet.loadFromFile("img/shadowsheet.png", IntRect(0, 0, 800, 480))) {
@@ -757,6 +990,17 @@ Texture* load_textures() {
 		perror("failed to load lobby image");
 		exit(1);
 	}
+	Texture die;
+	if (!die.loadFromFile("img/die.png", sf::IntRect(0, 0, 4*800, 600))) {
+		perror("failed to load died image");
+		exit(1);
+	}	
+	Texture end;
+	if (!end.loadFromFile("img/final.png", sf::IntRect(0, 0, 4800, 3000))) {
+		perror("failed to load final image");
+		exit(1);
+	}
+
 	textures[0] = shadowsheet;
 	textures[1] = armt;
 	textures[2] = ltr;
@@ -770,6 +1014,8 @@ Texture* load_textures() {
 	textures[10] = mummy;
 	textures[11] = empty;
 	textures[12] = lobby;
+	textures[13] = die;
+	textures[14] = end;
 	return textures;
 
 }
@@ -808,7 +1054,8 @@ int main(void) {
 		Time time;
 		time = clock.getElapsedTime();
 		nt = time.asMicroseconds();
-		delta = (nt - ot)/10000 ;
+	
+		delta = 50000/(nt - ot) ;
 		Event event;
 		while (window.pollEvent(event)){
 			if (event.type == Event::Closed)
