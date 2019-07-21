@@ -111,16 +111,16 @@ void chat(int n, RenderWindow* window) {
 		break;
 
 	case 101:
-		write(1, window, 0.03, Color::White, 350, 650, 10, "vamos, filho");
+		write(1, window, 0.03, Color::White, 350, 650, 10, " vamos, filho");
 		break;
 	case 102:
-		write(1, window, 0.03, Color::White, 350, 650, 10, "sua mãe está nos esperando em casa");
+		write(1, window, 0.03, Color::White, 350, 650, 10, " vamos, filho\n sua mãe está nos esperando em casa\n estavamos ansiosos por sua alta");
 		break;
 	case 103:
-		write(1, window, 0.03, Color::White, 350, 650, 10, "estavamos ansiosos por sua alta");
+		write(1, window, 0.03, Color::White, 350, 650, 10, " estavamos ansiosos por sua alta\n não precisa ter medo, estou aqui");
 		break;
 	case 104:
-		write(1, window, 0.03, Color::White, 350, 650, 10, "não precisa ter medo, estou aqui");
+		write(1, window, 0.03, Color::White, 350, 650, 10, " estavamos ansiosos por sua alta\n não precisa ter medo, estou aqui");
 		break;
 	case 100:
 		write(1, window, 0.03, Color::White, 350, 650, 10, "alguém pode iluminar?");
@@ -304,7 +304,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		main->line = 0;
 		main->chat = 0;
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::A) && main->wx>8*5 &&(*room!=6 || main->x<500)) {
+	else if (Keyboard::isKeyPressed(Keyboard::A) && main->wx>8*5 &&(*room!=6||(main->endline!=0||( main->endline<500) ))) {
 
 	
 		main->line = 1;
@@ -312,7 +312,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		main->x = main->x - 8 / delta;
 		main->ang = abs(main->ang);
 	}
-	else if (Keyboard::isKeyPressed(Keyboard::D) && main->x < main->tx-15*5 ) {
+	else if (Keyboard::isKeyPressed(Keyboard::D) && main->x < main->tx-15*5 &&(*room != 6 || (main->endline != 0))) {
 		main->line = 1;
 		main->dir = 1;
 		main->x = main->x + 8 / delta;
@@ -771,30 +771,33 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		if (main->endline <= 2) {
 			(*window).draw(mc);
 			(*window).draw(arm);
-		}
-		if (main->ltrn && main->battery > 0) {
-			(*window).draw(l);
-			if (main->endline == 0) {
-				main->endline = 1;
-				animate(main->cut, &rectFINAL, &end, 800, 600, 6, main->endline, 6);
+			if (main->ltrn && main->battery > 0) {
+				(*window).draw(l);
+				if (main->endline == 0) {
+					main->endline = 1;
+					animate(main->cut, &rectFINAL, &end, 800, 600, 6, main->endline, 3);
+				}
 			}
 		}
+		
 		if (main->endline == 1 && rectFINAL.left == 800 * 5) {
 			main->endline = 2;
 		}
 		if (main->endline == 2 && main->x > 100 * 5) {
 			main->cut.restart();
 			main->endline = 3;
-			animate(main->cut, &rectFINAL, &end, 800, 600, 6, main->endline, 6);
+			animate(main->cut, &rectFINAL, &end, 800, 600, 6, main->endline, 3);
 		}
 		if (main->endline == 3 && rectFINAL.left == 800 * 5) {
 			main->cut.restart();
 			main->endline = 4;
 		}
-		if (main->endline == 4 && main->cut.getElapsedTime().asSeconds()>=1) {
+		if (main->endline == 4 && main->cut.getElapsedTime().asSeconds()>=2) {
 			rectFINAL.left = 800 * 5;
 		}
-
+		if (main->endline == 4 && main->cut.getElapsedTime().asSeconds() >= 6) {
+			*current_scr = 2;
+		}
 
 
 
@@ -1065,7 +1068,7 @@ int main(void) {
 
 		window.clear();
 		int cursorLine = 1;
-		if (time.asSeconds() <= 5)
+		if (time.asSeconds() <= 10)
 			draw_credits_gamso(&window);
 		else {
 			draw_scr(textures, delta, clock, &main, &room, current_scr, &window, event, &sound, &cursorLine, propLine);
