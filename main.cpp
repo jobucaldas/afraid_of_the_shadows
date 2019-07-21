@@ -283,7 +283,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 	if(*room!=1)
 		tx=main->tx;
 	else
-		tx=1080*5;
+		tx=1080;
 
 
 	battery.setScale((*window).getSize().x / 800.0/2, (*window).getSize().y / 600.0);
@@ -438,6 +438,7 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		//
 		break;
 	case 1:
+		rom.scale(5, 5);
 		prop[1] = get_prop(clock, textures, propLine[1], (main->wx - main->x+700) * (*window).getSize().x / 800.0, window->getSize().y * 0.75);
 		if (prop[1].getGlobalBounds().intersects(l.getGlobalBounds()) && main->ltrn == 1 && main->battery > 0) {
 			propLine[1] = 5;
@@ -498,15 +499,15 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		}
 		//doors
 		if (main->door[4])
-			main->tx = 1080 * 5;
+			main->tx = 1080*5 ;
 		else if (main->door[3])
-			main->tx = 1030 * 5;
+			main->tx = 1030 *5;
 		else if (main->door[2])
-			main->tx = 780 * 5;
+			main->tx = 780 *5;
 		else if (main->door[1])
-			main->tx = 550 * 5;
+			main->tx = 550 *5;
 		else
-			main->tx = 300 * 5;
+			main->tx = 300 *5;
 
 		break;
 
@@ -953,7 +954,7 @@ Texture* load_textures() {
 
 	}
 	Texture room;
-	if (!room.loadFromFile("img/hall.png", sf::IntRect(0, 0, 2*5400, 600))) {
+	if (!room.loadFromFile("img/hall.png", sf::IntRect(0, 0, 2*5400/5, 600/5))) {
 		perror("failed to load room image");
 		scanf("%*c");
 	}
