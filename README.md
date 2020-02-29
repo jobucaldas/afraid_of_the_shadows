@@ -3,7 +3,6 @@
 A SFML game developed for the gamejaaj3 game jam.
 
 ## Build
-Run
 - For multiplatform support
 ```bash
 make all
