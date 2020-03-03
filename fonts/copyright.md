@@ -1,1 +1,0 @@
-The PC-98 font is property of NEC

@@ -64,7 +64,7 @@ void animate(Clock clock, IntRect* rectSourceSprite, Sprite* sprite, int sizex,i
 
 void write(int n, RenderWindow* window,float size, Color c,float x, float y,int i,string str) {
 	Font font;
-	if (!font.loadFromFile("fonts/pc98.ttf")) {
+	if (!font.loadFromFile("Assets/Fonts/pc98.ttf")) {
 		cout << "Error loading fonts" << endl;
 		scanf("%*c");
 	}
@@ -92,8 +92,8 @@ void write(int n, RenderWindow* window,float size, Color c,float x, float y,int 
 void chat(int n, RenderWindow* window) {
 	switch (n) {
 	case 0:
-		write(1, window, 0.03, Color::White, 350, 650, 10, "Está muito escuro aqui...\n");
-		write(1, window, 0.02, Color::White, 350, 650, 10, "\n \n ainda bem que há uma lanterna\n ..... o que é aquilo?");
+		write(1, window, 0.03, Color::White, 350, 650, 10, "Estï¿½ muito escuro aqui...\n");
+		write(1, window, 0.02, Color::White, 350, 650, 10, "\n \n ainda bem que hï¿½ uma lanterna\n ..... o que ï¿½ aquilo?");
 		break;
 	case 2:
 
@@ -101,10 +101,10 @@ void chat(int n, RenderWindow* window) {
 		break;
 
 	case 4:
-		write(1, window, 0.03, Color::White, 50, 650, 10, "FUJA!	FUJA!  FUJA RAPIDAMENTE! ,\n ELE NÃO ESTÁ TÃO LONGE...");
+		write(1, window, 0.03, Color::White, 50, 650, 10, "FUJA!	FUJA!  FUJA RAPIDAMENTE! ,\n ELE Nï¿½O ESTï¿½ Tï¿½O LONGE...");
 		break;
 	case 6:
-		write(1, window, 0.03, Color::White, 50, 650, 10, "SAIA DO MEU QUARTO,\n crianças não deveriam estar aqui...");
+		write(1, window, 0.03, Color::White, 50, 650, 10, "SAIA DO MEU QUARTO,\n crianï¿½as nï¿½o deveriam estar aqui...");
 		break;
 	case 8:
 		write(1, window, 0.08, Color::White, 50, 650, 10, "*****ROOOONCO******");
@@ -118,16 +118,16 @@ void chat(int n, RenderWindow* window) {
 		write(1, window, 0.03, Color::White, 350, 650, 10, " vamos, filho");
 		break;
 	case 102:
-		write(1, window, 0.03, Color::White, 350, 650, 10, " vamos, filho\n sua mãe está nos esperando em casa\n estavamos ansiosos por sua alta");
+		write(1, window, 0.03, Color::White, 350, 650, 10, " vamos, filho\n sua mï¿½e estï¿½ nos esperando em casa\n estavamos ansiosos por sua alta");
 		break;
 	case 103:
-		write(1, window, 0.03, Color::White, 350, 650, 10, " estavamos ansiosos por sua alta\n não precisa ter medo, estou aqui");
+		write(1, window, 0.03, Color::White, 350, 650, 10, " estavamos ansiosos por sua alta\n nï¿½o precisa ter medo, estou aqui");
 		break;
 	case 104:
-		write(1, window, 0.03, Color::White, 350, 650, 10, " estavamos ansiosos por sua alta\n não precisa ter medo, estou aqui");
+		write(1, window, 0.03, Color::White, 350, 650, 10, " estavamos ansiosos por sua alta\n nï¿½o precisa ter medo, estou aqui");
 		break;
 	case 100:
-		write(1, window, 0.03, Color::White, 350, 650, 10, "alguém pode iluminar?");
+		write(1, window, 0.03, Color::White, 350, 650, 10, "alguï¿½m pode iluminar?");
 		break;
 
 	default:
@@ -145,7 +145,7 @@ void draw_menu(int* current_scr,Texture * textures ,RenderWindow *window) {
 	menu.setPosition(0, 0);
 
 	Font font;
-	if (!font.loadFromFile("fonts/pc98.ttf")) {
+	if (!font.loadFromFile("Assets/Fonts/pc98.ttf")) {
 		cout << "Error loading fonts" << endl;
 		scanf("%*c");
 	}
@@ -209,7 +209,7 @@ void draw_gameover(Clock clock,int* current_scr, Texture* textures, RenderWindow
 	main->battery = 100;
 	main->san = 100;
 	Font font;
-	if (!font.loadFromFile("fonts/pc98.ttf")) {
+	if (!font.loadFromFile("Assets/Fonts/pc98.ttf")) {
 		cout << "Error loading fonts" << endl;
 		scanf("%*c");
 	}
@@ -222,7 +222,7 @@ void draw_gameover(Clock clock,int* current_scr, Texture* textures, RenderWindow
 
 	Text gameover;
 	gameover.setFont(font);
-	gameover.setString("Você teve um ataque cardíaco!");
+	gameover.setString("Vocï¿½ teve um ataque cardï¿½aco!");
 	gameover.setCharacterSize((*window).getSize().y * 0.08);
 	gameover.setPosition((*window).getSize().x / 2 - gameover.getGlobalBounds().width / 2, (*window).getSize().y / 2 / 2 - (*window).getSize().y * 0.08 / 2);
 	Text menu;
@@ -761,15 +761,15 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 		if (main->san < 80)
 			write(1, window, 0.04, Color::White, 100, 600, 0, "clima estranho...");
 		if (main->san < 50)
-			write(1, window, 0.04, Color::White, 300, 200, 0, "essa escuridão me assusta...");
+			write(1, window, 0.04, Color::White, 300, 200, 0, "essa escuridï¿½o me assusta...");
 		if (main->san < 40)
 			write(1, window, 0.04, Color::White, 400, 100, 0, "... acho q ouvi algo...");
 		if (main->san < 30)
-			write(1, window, 0.04, Color::White, 500, 300, 0, "... alguém me tira daqui...");
+			write(1, window, 0.04, Color::White, 500, 300, 0, "... alguï¿½m me tira daqui...");
 		if (main->san < 20)
-			write(1, window, 0.04, Color::White, 400, 400, 0, "... não consigo ver nada...");
+			write(1, window, 0.04, Color::White, 400, 400, 0, "... nï¿½o consigo ver nada...");
 		if (main->san < 10)
-			write(1, window, 0.04, Color::White, 200, 500, 0, "... é o fim.....");
+			write(1, window, 0.04, Color::White, 200, 500, 0, "... ï¿½ o fim.....");
 	}
 	else {
 		animate(main->cut, &rectFINAL, &end, 800, 600, 6, main->endline, 6);
@@ -838,19 +838,19 @@ void draw_game(Sound *sound,Texture* textures, double delta, Clock clock, shadow
 void draw_credits_gamso(RenderWindow *window) {
 	// Create text
 	Font font;
-	if (!font.loadFromFile("fonts/pc98.ttf")) {
+	if (!font.loadFromFile("Assets/Fonts/pc98.ttf")) {
 		cout << "Error loading fonts" << endl;
 		scanf("%*c");
 	}
 	Text credits;
 	credits.setFont(font);
-	credits.setString("Uma produção Lunare Team e");
+	credits.setString("Uma produï¿½ï¿½o Lunare Team e");
 	credits.setCharacterSize((*window).getSize().y*0.05);
 	credits.setPosition((*window).getSize().x/2-credits.getGlobalBounds().width/2, (*window).getSize().y*0.02);
 
 	// Create texture
 	Texture texture;
-	if (!texture.loadFromFile("img/gamso.png")){
+	if (!texture.loadFromFile("Assets/img/gamso.png")){
 		cout << "Error loading texture" << endl;
 	}
 	texture.setSmooth(false);
@@ -866,7 +866,7 @@ void draw_credits_gamso(RenderWindow *window) {
 void draw_credits(int* current_scr, RenderWindow *window) {
 	// Create text
 	Font font;
-	if (!font.loadFromFile("fonts/pc98.ttf")) {
+	if (!font.loadFromFile("Assets/Fonts/pc98.ttf")) {
 		cout << "Error loading fonts" << endl;
 		scanf("%*c");
 	}
@@ -877,7 +877,7 @@ void draw_credits(int* current_scr, RenderWindow *window) {
 	voltar.setPosition((*window).getSize().x*0.02, (*window).getSize().y*0.5 + (*window).getSize().y * 0.08 * 5);
 	Text credits;
 	credits.setFont(font);
-	credits.setString("Programador de engine: João Bueno (@rito_jobu)\nDireção: João Bueno (@rito_jobu)\nProgramador de gameplay: Matheus Ramos\nArte e Som: Matheus Ramos\n\nCom a colaboração do grupo GAMSo");
+	credits.setString("Programador de engine: Joï¿½o Bueno (@rito_jobu)\nDireï¿½ï¿½o: Joï¿½o Bueno (@rito_jobu)\nProgramador de gameplay: Matheus Ramos\nArte e Som: Matheus Ramos\n\nCom a colaboraï¿½ï¿½o do grupo GAMSo");
 	credits.setCharacterSize((*window).getSize().y * 0.05);
 	credits.setPosition((*window).getSize().x/2-credits.getGlobalBounds().width/2, (*window).getSize().y/2-credits.getGlobalBounds().height/2);
 
@@ -930,81 +930,81 @@ Texture* load_textures() {
 	textures=(Texture*)malloc(sizeof(Texture) * 15);
 
 	Texture shadowsheet;
-	if (!shadowsheet.loadFromFile("img/shadowsheet.png", IntRect(0, 0, 800, 480))) {
+	if (!shadowsheet.loadFromFile("Assets/img/shadowsheet.png", IntRect(0, 0, 800, 480))) {
 		perror("failed to load shadowsheet image");
 		scanf("%*c");
 
 	}
 	Texture armt;
-	if (!armt.loadFromFile("img/arm.png", IntRect(0, 0, 32 * 5, 32 * 5))) {
+	if (!armt.loadFromFile("Assets/img/arm.png", IntRect(0, 0, 32 * 5, 32 * 5))) {
 		perror("failed to load arm image");
 		scanf("%*c");
 
 	}
 	Texture ltr;
-	if (!ltr.loadFromFile("img/lantern.png", IntRect(0, 0, 480, 160))) {
+	if (!ltr.loadFromFile("Assets/img/lantern.png", IntRect(0, 0, 480, 160))) {
 		perror("failed to load lantern image");
 		scanf("%*c");
 
 	}
 	Texture rooml;
-	if (!rooml.loadFromFile("img/rooms.png", sf::IntRect(0, 0, 2*800, 600))) {
+	if (!rooml.loadFromFile("Assets/img/rooms.png", sf::IntRect(0, 0, 2*800, 600))) {
 		perror("failed to load room image");
 		scanf("%*c");
 
 	}
 	Texture room;
-	if (!room.loadFromFile("img/hall.png", sf::IntRect(0, 0, 2*5400/5, 600/5))) {
+	if (!room.loadFromFile("Assets/img/hall.png", sf::IntRect(0, 0, 2*5400/5, 600/5))) {
 		perror("failed to load room image");
 		scanf("%*c");
 	}
 	Texture hidden;
-	if (!hidden.loadFromFile("img/hiddensheet.png", sf::IntRect(0, 0, 150, 600))) {
+	if (!hidden.loadFromFile("Assets/img/hiddensheet.png", sf::IntRect(0, 0, 150, 600))) {
 		perror("failed to load objects image");
 		scanf("%*c");
 	}
 	Texture animation_1;
-	if (!animation_1.loadFromFile("img/room animation.png", sf::IntRect(0, 0, 15*160, 140))) {
+	if (!animation_1.loadFromFile("Assets/img/room animation.png", sf::IntRect(0, 0, 15*160, 140))) {
 		perror("failed to load animation image");
 		scanf("%*c");
 	}
 	Texture menu;
-	if (!menu.loadFromFile("img/menu.png", sf::IntRect(0, 0, 800, 600))) {
+	if (!menu.loadFromFile("Assets/img/menu.png", sf::IntRect(0, 0, 800, 600))) {
 		perror("failed to load menu image");
 		scanf("%*c");
 	}
 	Texture r;
-	if (!r.loadFromFile("img/room.png", sf::IntRect(0, 0, 3200, 600))) {
+	if (!r.loadFromFile("Assets/img/room.png", sf::IntRect(0, 0, 3200, 600))) {
 		perror("failed to load room image");
 		scanf("%*c");
 	}
 	Texture wheel;
-	if (!wheel.loadFromFile("img/wheel.png", sf::IntRect(0, 0, 3200, 600))) {
+	if (!wheel.loadFromFile("Assets/img/wheel.png", sf::IntRect(0, 0, 3200, 600))) {
 		perror("failed to load room image");
 		scanf("%*c");
 	}
 	Texture mummy;
-	if (!mummy.loadFromFile("img/mummy.png", sf::IntRect(0, 0, 3200, 600))) {
+	if (!mummy.loadFromFile("Assets/img/mummy.png", sf::IntRect(0, 0, 3200, 600))) {
 		perror("failed to load room image");
 		scanf("%*c");
 	}
 	Texture empty;
-	if (!empty.loadFromFile("img/empty.png", sf::IntRect(0, 0, 3200, 600))) {
+	if (!empty.loadFromFile("Assets/img/empty.png", sf::IntRect(0, 0, 3200, 600))) {
 		perror("failed to load room image");
 		scanf("%*c");
 	}
 	Texture lobby;
-	if (!lobby.loadFromFile("img/lobby.png", sf::IntRect(0, 0, 1600, 600))) {
+	if (!lobby.loadFromFile("Assets/img/lobby.png", sf::IntRect(0, 0, 1600, 600))) {
 		perror("failed to load lobby image");
 		scanf("%*c");
 	}
 	Texture die;
-	if (!die.loadFromFile("img/die.png", sf::IntRect(0, 0, 4*800, 600))) {
+	if (!die.loadFromFile("Assets/img/die.png", sf::IntRect(0, 0, 4*800, 600))) {
 		perror("failed to load died image");
 		scanf("%*c");
 	}	
 	Texture end;
-	if (!end.loadFromFile("img/final.png", sf::IntRect(0, 0, 4800, 3000))) {
+	if (!end.loadFromFile("Assets/img/final.png", sf::IntRect(0, 0, 4800, 3000))) {
 		perror("failed to load final image");
 		scanf("%*c");
 	}
@@ -1044,11 +1044,11 @@ int main(void) {
 	Sprite cursor(textures[5]);
 	IntRect cursorRect(0,50,50,50);
 	SoundBuffer walk,bgm;
-	if (!walk.loadFromFile("sound/walk.wav")) {
+	if (!walk.loadFromFile("Assets/Sound/walk.wav")) {
 		cout << "Error loading sound" << endl;
 		scanf("%*c");
 	}
-	if (!bgm.loadFromFile("sound/bgm.wav")) {
+	if (!bgm.loadFromFile("Assets/Sound/bgm.wav")) {
 		cout << "Error loading sound" << endl;
 		scanf("%*c");
 	}
